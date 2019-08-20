@@ -14,109 +14,25 @@
       ]
     },
     {
-      "id": 2,
-      "title": "json-server",
-      "link": "https://github.com/typicode/json-server",
-      "description": "Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.",
-      "tags": [
-        "api",
-        "json",
-        "schema",
-        "node",
-        "github",
-        "rest"
-      ]
-    },
-    {
-      "id": 3,
-      "title": "fastify",
-      "link": "https://www.fastify.io/",
-      "description": "Extremely fast and simple, low-overhead web framework for NodeJS. Supports HTTP2.",
-      "tags": [
-        "web",
-        "framework",
-        "node",
-        "http2",
-        "https",
-        "localhost"
-      ]
-    },
-    {
-      "title": "test-tool",
-      "description": "test-tool description wow",
-      "tags": [
-        "test",
-        "tool",
-        "wow",
-        "such"
-      ],
-      "id": 5
-    },
-    {
-      "title": "test-tool",
-      "description": "test-tool description wow",
-      "tags": [
-        "test",
-        "tool",
-        "wow",
-        "such"
-      ],
-      "id": 6
-    },
-    {
-      "title": "test-tool",
-      "description": "test-tool description wow",
-      "tags": [
-        "test",
-        "tool",
-        "wow",
-        "such"
-      ],
-      "id": 7
-    },
-    {
-      "title": "test-tool",
-      "description": "test-tool description wow",
-      "tags": [
-        "test",
-        "tool",
-        "wow",
-        "such"
-      ],
-      "id": 8
-    },
-    {
-      "title": "test-tool ultimo",
-      "description": "test-tool description wow",
-      "tags": [
-        "test",
-        "tool",
-        "wow",
-        "such"
-      ],
-      "id": 9
-    },
-    {
-      "title": "test-tool ultimo 2",
-      "description": "test-tool description wow",
-      "tags": [
-        "test",
-        "tool",
-        "wow",
-        "such"
-      ],
-      "id": 10
-    },
-    {
-      "title": "Ferramenta teste",
+      "title": "First tool",
       "link": "http://github.com/santanarscs",
-      "description": "descrição",
+      "description": "description",
       "tags": [
-        "tag1",
-        "tag2",
-        "tag3"
+        "react",
+        "reactjs"
       ],
-      "id": 11
+      "id": 2
+    },
+    {
+      "title": "Title Teste",
+      "link": "http://teste.com.br",
+      "description": "Description Teste",
+      "tags": [
+        "teste",
+        "muitoteste",
+        "testeIncrivel"
+      ],
+      "id": 3
     }
   ]
 }

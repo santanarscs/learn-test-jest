@@ -1,7 +1,7 @@
 export const INITIAL_STATE = {
   data: [],
   loading: false,
-  toolStateModal: false,
+  toolStateAddModal: false,
 };
 
 export default function tools(state = INITIAL_STATE, action) {
@@ -22,15 +22,15 @@ export default function tools(state = INITIAL_STATE, action) {
       };
     case '@tools/REMOVE_SUCCESS':
       return { ...state, loading: false };
-    case '@tools/OPEN_MODAL':
+    case '@tools/OPEN_ADD_MODAL':
       return {
         ...state,
-        toolStateModal: true,
+        toolStateAddModal: true,
       };
-    case '@tools/CLOSE_MODAL':
+    case '@tools/CLOSE_ADD_MODAL':
       return {
         ...state,
-        toolStateModal: false,
+        toolStateAddModal: false,
       };
     default:
       return state;

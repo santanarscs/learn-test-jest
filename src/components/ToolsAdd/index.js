@@ -2,7 +2,10 @@ import React from 'react';
 import { Input } from '@rocketseat/unform';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import { addToolRequest, closeToolModal } from '~/store/modules/tools/actions';
+import {
+  addToolRequest,
+  closeToolAddModal,
+} from '~/store/modules/tools/actions';
 import Form from './styles';
 
 const schema = Yup.object().shape({
@@ -25,7 +28,7 @@ export default function ToolsAdd() {
     const data = { ...tool, tags: mountTag(tool.tags) };
     dispatch(addToolRequest(data));
     resetForm();
-    dispatch(closeToolModal());
+    dispatch(closeToolAddModal());
   }
 
   return (

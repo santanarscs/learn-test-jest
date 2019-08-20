@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.li`
   line-height: 25px;
@@ -21,6 +22,9 @@ export const Container = styled.li`
       margin-right: 10px;
     }
   }
+  p {
+    padding: 20px 0;
+  }
 `;
 export const Title = styled.div`
   display: flex;
@@ -34,5 +38,28 @@ export const Title = styled.div`
     display: flex;
     align-items: center;
     color: #f95e5a;
+  }
+`;
+
+export const TitleModal = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+`;
+export const ActionsModal = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+export const Button = styled.button`
+  margin-left: 10px;
+  border: 0;
+  border-radius: 5px;
+  padding: 14px 0;
+  width: 140px;
+  color: #fff;
+  background: ${props => props.color};
+  transition: ease-in 0.2s;
+  &:hover {
+    background: ${props => darken(0.2, props.color)};
   }
 `;

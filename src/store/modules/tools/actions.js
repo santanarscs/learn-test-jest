@@ -51,14 +51,14 @@ export function removeToolFailure() {
   };
 }
 
-export function openToolModal() {
+export function openToolAddModal() {
   return {
-    type: '@tools/OPEN_MODAL',
+    type: '@tools/OPEN_ADD_MODAL',
   };
 }
 
-export function closeToolModal() {
+export function closeToolAddModal() {
   return {
-    type: '@tools/CLOSE_MODAL',
+    type: '@tools/CLOSE_ADD_MODAL',
   };
 }

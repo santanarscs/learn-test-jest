@@ -1,7 +1,7 @@
 import React from 'react';
 import { MdAdd } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
-import { openToolModal } from '~/store/modules/tools/actions';
+import { openToolAddModal } from '~/store/modules/tools/actions';
 
 import { Container, Header, TitleModal } from './styles';
 
@@ -12,10 +12,10 @@ import Modal from '~/components/Modal';
 
 export default function Tools() {
   const dispatch = useDispatch();
-  const toolStateModal = useSelector(state => state.tools.toolStateModal);
+  const toolStateModal = useSelector(state => state.tools.toolStateAddModal);
 
   function openModal() {
-    dispatch(openToolModal());
+    dispatch(openToolAddModal());
   }
 
   return (
