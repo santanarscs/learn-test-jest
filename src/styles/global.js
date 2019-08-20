@@ -16,11 +16,12 @@ export default createGlobalStyle`
   }
   body {
     -webkit-font-smoothing: antialiased;
+    color: #170C3A;
+    background: #FCFCFD
   }
   body, input, button {
     font: 20px 'Roboto', sans-serif;
-    color: #170C3A;
-    background: #F5F4F6
+
   }
   a {
     text-decoration: none;

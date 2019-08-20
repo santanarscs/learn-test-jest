@@ -21,11 +21,13 @@ function ToolsItem({ tool }) {
         </button>
       </Title>
       <small>{tool.description}</small>
-      <ul>
-        {tool.tags.map(tag => (
-          <li key={tag}>#{tag}</li>
-        ))}
-      </ul>
+      {tool.tags.length !== 0 && (
+        <ul>
+          {tool.tags.map(tag => (
+            <li key={tag}>#{tag}</li>
+          ))}
+        </ul>
+      )}
     </Container>
   );
 }

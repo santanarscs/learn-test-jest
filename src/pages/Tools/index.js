@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
-import { MdAdd, MdClose } from 'react-icons/md';
+import React from 'react';
+import { MdAdd } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
+import { openToolModal } from '~/store/modules/tools/actions';
+
 import { Container, Header, TitleModal } from './styles';
 
 import ToolsList from '~/components/ToolsList';
@@ -8,29 +11,26 @@ import ToolsAdd from '~/components/ToolsAdd';
 import Modal from '~/components/Modal';
 
 export default function Tools() {
-  const [stateModal, setStateModal] = useState(false);
+  const dispatch = useDispatch();
+  const toolStateModal = useSelector(state => state.tools.toolStateModal);
 
-  function changeModal() {
-    setStateModal(!stateModal);
+  function openModal() {
+    dispatch(openToolModal());
   }
 
   return (
     <Container>
       <Header>
         <ToolsSearch />
-        <button type="button" onClick={changeModal}>
+        <button type="button" onClick={openModal}>
           {' '}
           <MdAdd size={20} /> Add
         </button>
       </Header>
-      {stateModal && (
+      {toolStateModal && (
         <Modal>
           <TitleModal>
-            <h1>New Tool</h1>
-            <button type="button" onClick={changeModal}>
-              {' '}
-              <MdClose size={20} />
-            </button>
+            <MdAdd size={30} /> <h1>Add new Tool</h1>
           </TitleModal>
           <ToolsAdd />
         </Modal>

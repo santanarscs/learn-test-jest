@@ -50,3 +50,15 @@ export function removeToolFailure() {
     type: '@tools/REMOVE_FAILURE',
   };
 }
+
+export function openToolModal() {
+  return {
+    type: '@tools/OPEN_MODAL',
+  };
+}
+
+export function closeToolModal() {
+  return {
+    type: '@tools/CLOSE_MODAL',
+  };
+}

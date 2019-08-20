@@ -12,7 +12,8 @@ export function* getTools() {
   }
 }
 
-export function* addTool(tool) {
+export function* addTool({ payload }) {
+  const { tool } = payload;
   try {
     const response = yield call(api.post, 'tools', tool);
     yield put(ToolsAction.addToolSuccess(response.data));
@@ -21,7 +22,8 @@ export function* addTool(tool) {
   }
 }
 
-export function* removeTool(id) {
+export function* removeTool({ payload }) {
+  const { id } = payload;
   try {
     yield call(api.delete, `tools/${id}`);
     yield put(ToolsAction.removeToolSuccess());

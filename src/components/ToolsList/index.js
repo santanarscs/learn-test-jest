@@ -11,7 +11,7 @@ export default function ToolsList() {
 
   useEffect(() => {
     dispatch(getToolsRequest());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Container>
