@@ -1,8 +1,8 @@
-import React from "react";
-import { Form, Input } from "@rocketseat/unform";
-import { useDispatch } from "react-redux";
-import { addToolRequest } from "../../store/modules/tools/actions";
-// import { Container } from './styles';
+import React from 'react';
+import { Input } from '@rocketseat/unform';
+import { useDispatch } from 'react-redux';
+import { addToolRequest } from '../../store/modules/tools/actions';
+import Form from './styles';
 
 export default function ToolsAdd() {
   const dispatch = useDispatch();
@@ -13,8 +13,8 @@ export default function ToolsAdd() {
 
   return (
     <Form onSubmit={handleAddTool}>
-      <Input name="title" />
-      <Input name="description" />
+      <Input name="title" label="Title" />
+      <Input name="description" label="Description" />
       <button type="submit">Adicionar</button>
     </Form>
   );
