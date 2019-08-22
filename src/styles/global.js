@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
@@ -33,4 +34,16 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
+  .notification__success {
+    background-color: #12DB89;
+
+  }
+  .notification__danger {
+    background-color: #F95E5A;
+
+  }
+  .notification__body {
+    padding: 30px;
+    font-size: 18px;
+  }
 `;
