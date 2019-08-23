@@ -13,7 +13,11 @@ export default function tools(state = INITIAL_STATE, action) {
     case '@tools/ADD_REQUEST':
       return { ...state, loading: true };
     case '@tools/ADD_SUCCESS':
-      return { ...state, data: [...state.data, action.payload.tool] };
+      return {
+        ...state,
+        loading: false,
+        data: [...state.data, action.payload.tool],
+      };
     case '@tools/REMOVE_REQUEST':
       return {
         ...state,
