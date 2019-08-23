@@ -13,8 +13,6 @@ function App() {
     <Provider store={store}>
       <GlobalStyle />
       <ToastContainer autoClose={3000} />
-      <h1>VUTTR</h1>
-      <h3>Veru UseFul Tools to Remember</h3>
       <Tools />
     </Provider>
   );

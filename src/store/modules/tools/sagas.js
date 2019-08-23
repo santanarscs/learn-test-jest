@@ -3,9 +3,16 @@ import { toast } from 'react-toastify';
 import api from '../../../services/api';
 import * as ToolsAction from './actions';
 
-export function* getTools() {
+export function* getTools({ payload }) {
+  const { data } = payload;
   try {
-    const response = yield call(api.get, 'tools');
+    let endpoint = 'tools';
+    if (data && data.term) {
+      endpoint = data.tagsOnly
+        ? `${endpoint}?tags_like=${data.term}`
+        : `${endpoint}?q=${data.term}`;
+    }
+    const response = yield call(api.get, endpoint);
     yield put(ToolsAction.getToolsSuccess(response.data));
   } catch (err) {
     yield put(ToolsAction.getToolsFailure());

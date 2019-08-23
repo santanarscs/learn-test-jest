@@ -20,6 +20,8 @@ export default function Tools() {
 
   return (
     <Container>
+      <h1>VUTTR</h1>
+      <h3>Veru UseFul Tools to Remember</h3>
       <Header>
         <ToolsSearch />
         <button type="button" onClick={openModal}>
