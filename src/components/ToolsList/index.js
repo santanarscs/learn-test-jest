@@ -11,7 +11,8 @@ export default function ToolsList() {
   const tools = useSelector(state => state.tools);
 
   useEffect(() => {
-    dispatch(getToolsRequest());
+    const data = null;
+    dispatch(getToolsRequest(data));
   }, [dispatch]);
 
   return (

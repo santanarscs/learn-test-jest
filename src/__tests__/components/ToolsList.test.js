@@ -27,6 +27,8 @@ jest.mock('react-redux');
 
 describe('ToolsList Component', () => {
   it('should render tools list', () => {
+    const dispatch = jest.fn();
+    useDispatch.mockReturnValue(dispatch);
     useSelector.mockImplementation(cb =>
       cb({
         tools: {

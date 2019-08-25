@@ -3,8 +3,7 @@ import { toast } from 'react-toastify';
 import api from '../../../services/api';
 import * as ToolsAction from './actions';
 
-export function* getTools({ payload }) {
-  const { data } = payload;
+export function* getTools(data) {
   try {
     let endpoint = 'tools';
     if (data && data.term) {
@@ -19,8 +18,7 @@ export function* getTools({ payload }) {
   }
 }
 
-export function* addTool({ payload }) {
-  const { tool } = payload;
+export function* addTool(tool) {
   try {
     const response = yield call(api.post, 'tools', tool);
     yield put(ToolsAction.addToolSuccess(response.data));
@@ -37,8 +35,7 @@ export function* addTool({ payload }) {
   }
 }
 
-export function* removeTool({ payload }) {
-  const { id } = payload;
+export function* removeTool(id) {
   try {
     yield call(api.delete, `tools/${id}`);
     yield put(ToolsAction.removeToolSuccess());
