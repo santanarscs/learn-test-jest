@@ -1,13 +1,13 @@
 export function getToolsRequest(data) {
   return {
     type: '@tools/GET_REQUEST',
-    payload: { data },
+    data,
   };
 }
 export function getToolsSuccess(data) {
   return {
     type: '@tools/GET_SUCCESS',
-    payload: { data },
+    data,
   };
 }
 export function getToolsFailure() {
@@ -18,13 +18,13 @@ export function getToolsFailure() {
 export function addToolRequest(tool) {
   return {
     type: '@tools/ADD_REQUEST',
-    payload: { tool },
+    tool,
   };
 }
 export function addToolSuccess(tool) {
   return {
     type: '@tools/ADD_SUCCESS',
-    payload: { tool },
+    tool,
   };
 }
 export function addToolFailure() {
@@ -36,7 +36,7 @@ export function addToolFailure() {
 export function removeToolRequest(id) {
   return {
     type: '@tools/REMOVE_REQUEST',
-    payload: { id },
+    id,
   };
 }
 export function removeToolSuccess() {

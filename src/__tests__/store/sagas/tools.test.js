@@ -46,7 +46,7 @@ describe('Tools saga', () => {
   it('should be able to add new tool', async () => {
     const dispatch = jest.fn();
     apiMock.onPost('tools').reply(200, tools[0]);
-    await runSaga({ dispatch }, ToolsSagas.addTool).toPromise();
+    await runSaga({ dispatch }, ToolsSagas.addTool, tools[0]).toPromise();
     expect(dispatch).toHaveBeenCalledWith(
       ToolsActions.addToolSuccess(tools[0])
     );
@@ -55,21 +55,23 @@ describe('Tools saga', () => {
   it('should fail when to add new tool', async () => {
     const dispatch = jest.fn();
     apiMock.onPost('tools').reply(500);
-    await runSaga({ dispatch }, ToolsSagas.addTool).toPromise();
+    await runSaga({ dispatch }, ToolsSagas.addTool, tools[0]).toPromise();
     expect(dispatch).toHaveBeenCalledWith(ToolsActions.addToolFailure());
   });
 
   it('should be able to remove tool', async () => {
     const dispatch = jest.fn();
-    apiMock.onDelete('tools').reply(201, 1);
-    await runSaga({ dispatch }, ToolsSagas.removeTool).toPromise();
+    apiMock.onDelete(`tools/1`).reply(200);
+
+    await runSaga({ dispatch }, ToolsSagas.removeTool, 1).toPromise();
+
     expect(dispatch).toHaveBeenCalledWith(ToolsActions.removeToolSuccess());
   });
 
   it('should fail when to remove tool', async () => {
     const dispatch = jest.fn();
     apiMock.onDelete('tools').reply(500);
-    await runSaga({ dispatch }, ToolsSagas.removeTool).toPromise();
+    await runSaga({ dispatch }, ToolsSagas.removeTool, 1).toPromise();
     expect(dispatch).toHaveBeenCalledWith(ToolsActions.removeToolFailure());
   });
 });

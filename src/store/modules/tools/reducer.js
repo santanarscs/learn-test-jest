@@ -9,20 +9,20 @@ export default function tools(state = INITIAL_STATE, action) {
     case '@tools/GET_REQUEST':
       return { ...state, loading: true };
     case '@tools/GET_SUCCESS':
-      return { ...state, loading: false, data: action.payload.data };
+      return { ...state, loading: false, data: action.data };
     case '@tools/ADD_REQUEST':
       return { ...state, loading: true };
     case '@tools/ADD_SUCCESS':
       return {
         ...state,
         loading: false,
-        data: [...state.data, action.payload.tool],
+        data: [...state.data, action.tool],
       };
     case '@tools/REMOVE_REQUEST':
       return {
         ...state,
         loading: true,
-        data: state.data.filter(tool => tool.id !== action.payload.id),
+        data: state.data.filter(tool => tool.id !== action.id),
       };
     case '@tools/REMOVE_SUCCESS':
       return { ...state, loading: false };
