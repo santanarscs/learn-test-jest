@@ -24,7 +24,7 @@ export default function Tools() {
       <h3>Veru UseFul Tools to Remember</h3>
       <Header>
         <ToolsSearch />
-        <button type="button" onClick={openModal}>
+        <button data-testid="open-modal" type="button" onClick={openModal}>
           {' '}
           <MdAdd size={20} /> Add
         </button>

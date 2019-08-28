@@ -25,4 +25,13 @@ describe('ToolsItem Component', () => {
 
     expect(dispatch).toHaveBeenCalledWith(removeToolRequest(tool.id));
   });
+  it('should be cancel to remove tool', () => {
+    const dispatch = jest.fn();
+    useDispatch.mockReturnValue(dispatch);
+
+    const { getByTestId } = render(<ToolsItem tool={tool} />);
+    fireEvent.click(getByTestId('open-modal-remove'));
+    fireEvent.click(getByTestId('cancel-remove-tool'));
+    expect(dispatch).not.toHaveBeenCalled();
+  });
 });

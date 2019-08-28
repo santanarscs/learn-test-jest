@@ -25,7 +25,11 @@ function ToolsItem({ tool }) {
     <Container>
       <Title>
         <strong>{tool.title}</strong>
-        <button type="button" data-testid="open-modal-remove" onClick={() => openModalRemove()}>
+        <button
+          type="button"
+          data-testid="open-modal-remove"
+          onClick={() => openModalRemove()}
+        >
           <MdClose size={20} color="#F95E5A" />
           remove
         </button>
@@ -45,7 +49,12 @@ function ToolsItem({ tool }) {
           </TitleModal>
           <p>Are you sure you want to remove {tool.title}?</p>
           <ActionsModal>
-            <Button color="#365DF0" onClick={handleRemoveCancel} type="button">
+            <Button
+              data-testid="cancel-remove-tool"
+              color="#365DF0"
+              onClick={handleRemoveCancel}
+              type="button"
+            >
               Cancel
             </Button>
             <Button

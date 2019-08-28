@@ -76,4 +76,20 @@ describe('Tools reducer', () => {
       toolStateAddModal: false,
     });
   });
+  it('@tools/OPEN_ADD_MODAL', () => {
+    const state = reducer(INITIAL_STATE, Tools.openToolAddModal());
+    expect(state).toStrictEqual({
+      data: [],
+      loading: false,
+      toolStateAddModal: true,
+    });
+  });
+  it('@tools/CLOSE_ADD_MODAL', () => {
+    const state = reducer(INITIAL_STATE, Tools.closeToolAddModal());
+    expect(state).toStrictEqual({
+      data: [],
+      loading: false,
+      toolStateAddModal: false,
+    });
+  });
 });

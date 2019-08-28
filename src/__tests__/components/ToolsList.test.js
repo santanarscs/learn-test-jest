@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { render, fireEvent } from '@testing-library/react';
-import * as ToolsActions from '~/store/modules/courses/actions';
+import { render } from '@testing-library/react';
 
 import ToolsList from '~/components/ToolsList';
 
@@ -39,5 +38,35 @@ describe('ToolsList Component', () => {
     );
     const { getByTestId, getByText } = render(<ToolsList />);
     expect(getByTestId('tool-list')).toContainElement(getByText('json-server'));
+  });
+  it('should show  empty data message', () => {
+    const dispatch = jest.fn();
+    useDispatch.mockReturnValue(dispatch);
+    useSelector.mockImplementation(cb =>
+      cb({
+        tools: {
+          loading: false,
+          data: [],
+        },
+      })
+    );
+    const { getByTestId, getByText } = render(<ToolsList />);
+    expect(getByTestId('container')).toContainElement(
+      getByText('Sem registros')
+    );
+  });
+  it('should show loading message', () => {
+    const dispatch = jest.fn();
+    useDispatch.mockReturnValue(dispatch);
+    useSelector.mockImplementation(cb =>
+      cb({
+        tools: {
+          loading: true,
+          data: [],
+        },
+      })
+    );
+    const { getByTestId, getByText } = render(<ToolsList />);
+    expect(getByTestId('container')).toContainElement(getByText('Carregando'));
   });
 });

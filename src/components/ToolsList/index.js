@@ -16,7 +16,7 @@ export default function ToolsList() {
   }, [dispatch]);
 
   return (
-    <Container>
+    <Container data-testid="container">
       {tools.loading && <Loading>Carregando</Loading>}
       {!tools.loading && tools.data.length === 0 && (
         <EmptyData>

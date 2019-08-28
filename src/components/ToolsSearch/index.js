@@ -23,12 +23,19 @@ export default function ToolsSearch() {
       <SearchGroup>
         <MdSearch size={25} color="#B1ADB9" />
         <input
+          aria-label="search-input"
+          id="search-input"
           type="text"
           placeholder="search"
           onChange={e => setSearchTerm(e.target.value)}
         />
       </SearchGroup>
-      <input type="checkbox" onChange={e => setTagsOnly(e.target.checked)} />{' '}
+      <input
+        type="checkbox"
+        aria-label="search-checkbox"
+        id="search-checkbox"
+        onChange={e => setTagsOnly(e.target.checked)}
+      />{' '}
       search in tags only
     </Container>
   );

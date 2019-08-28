@@ -34,6 +34,25 @@ describe('Tools saga', () => {
 
     expect(dispatch).toHaveBeenCalledWith(ToolsActions.getToolsSuccess(tools));
   });
+  it('should be able to fecth tools with search', async () => {
+    const dispatch = jest.fn();
+    const data = { term: 'Notion', tagsOnly: false };
+    apiMock.onGet('tools?q=Notion').reply(200, tools);
+
+    await runSaga({ dispatch }, ToolsSagas.getTools, data).toPromise();
+
+    expect(dispatch).toHaveBeenCalledWith(ToolsActions.getToolsSuccess(tools));
+  });
+  it('should be able to fecth tools with search and tagsOnly', async () => {
+    const dispatch = jest.fn();
+    const data = { term: 'Notion', tagsOnly: true };
+    apiMock.onGet('tools?tags_like=Notion').reply(200, tools);
+
+    await runSaga({ dispatch }, ToolsSagas.getTools, data).toPromise();
+
+    expect(dispatch).toHaveBeenCalledWith(ToolsActions.getToolsSuccess(tools));
+  });
+
   it('should fail when api returns error', async () => {
     const dispatch = jest.fn();
     apiMock.onGet('tools').reply(500);
