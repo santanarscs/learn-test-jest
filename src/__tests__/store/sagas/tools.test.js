@@ -63,7 +63,7 @@ describe('Tools saga', () => {
     const dispatch = jest.fn();
     apiMock.onDelete(`tools/1`).reply(200);
 
-    await runSaga({ dispatch }, ToolsSagas.removeTool, 1).toPromise();
+    await runSaga({ dispatch }, ToolsSagas.removeTool, { id: 1 }).toPromise();
 
     expect(dispatch).toHaveBeenCalledWith(ToolsActions.removeToolSuccess());
   });
