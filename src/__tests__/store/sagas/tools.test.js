@@ -30,7 +30,9 @@ describe('Tools saga', () => {
     const dispatch = jest.fn();
     apiMock.onGet('tools').reply(200, tools);
 
-    await runSaga({ dispatch }, ToolsSagas.getTools).toPromise();
+    await runSaga({ dispatch }, ToolsSagas.getTools, {
+      data: null,
+    }).toPromise();
 
     expect(dispatch).toHaveBeenCalledWith(ToolsActions.getToolsSuccess(tools));
   });
@@ -39,7 +41,7 @@ describe('Tools saga', () => {
     const data = { term: 'Notion', tagsOnly: false };
     apiMock.onGet('tools?q=Notion').reply(200, tools);
 
-    await runSaga({ dispatch }, ToolsSagas.getTools, data).toPromise();
+    await runSaga({ dispatch }, ToolsSagas.getTools, { data }).toPromise();
 
     expect(dispatch).toHaveBeenCalledWith(ToolsActions.getToolsSuccess(tools));
   });
@@ -48,7 +50,7 @@ describe('Tools saga', () => {
     const data = { term: 'Notion', tagsOnly: true };
     apiMock.onGet('tools?tags_like=Notion').reply(200, tools);
 
-    await runSaga({ dispatch }, ToolsSagas.getTools, data).toPromise();
+    await runSaga({ dispatch }, ToolsSagas.getTools, { data }).toPromise();
 
     expect(dispatch).toHaveBeenCalledWith(ToolsActions.getToolsSuccess(tools));
   });
@@ -57,7 +59,9 @@ describe('Tools saga', () => {
     const dispatch = jest.fn();
     apiMock.onGet('tools').reply(500);
 
-    await runSaga({ dispatch }, ToolsSagas.getTools).toPromise();
+    await runSaga({ dispatch }, ToolsSagas.getTools, {
+      data: null,
+    }).toPromise();
 
     expect(dispatch).toHaveBeenCalledWith(ToolsActions.getToolsFailure());
   });

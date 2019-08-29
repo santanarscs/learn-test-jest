@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import api from '../../../services/api';
 import * as ToolsAction from './actions';
 
-export function* getTools(data) {
+export function* getTools({ data }) {
   try {
     let endpoint = 'tools';
     if (data && data.term) {
